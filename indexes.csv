@@ -1,0 +1,55 @@
+symbol,name,country,category
+.SPX,S&P 500 Index,US,Broad Index
+.SPSY,S&P 500 Financials Sector,US,Sector Index
+.SPXHC,S&P 500 Health Care Sector,US,Sector Index
+.SPNY,S&P 500 Energy Sector,US,Sector Index
+.SPLRCT,S&P 500 Information Technology Sector,US,Sector Index
+.SPLRCL,S&P 500 Telecom Services Sector,US,Sector Index
+.SPLRCD,S&P 500 Consumer Discretionary Sector,US,Sector Index
+.SPLRCS,S&P 500 Consumer Staples Sector,US,Sector Index
+.SPLRCI,S&P 500 Industrials Sector,US,Sector Index
+.SPLRCM,S&P 500 Materials Sector,US,Sector Index
+.SPLRCR,S&P 500 Real Estate Sector,US,Sector Index
+.SPLRCU,S&P 500 Utilities Sector,US,Sector Index
+.SPADR,S&P ADR Index CME,US,Special Index
+.SPXEW,S&P 500 Equal Weight Index,US,Special Index
+.SPXIN,S&P 500 Insurance Group,US,Special Index
+.SPXRT,S&P 500 Retailing,US,Special Index
+.DJI,Dow Jones Industrial Average,US,Broad Index
+.DJA,Dow Jones Composite Average,US,Broad Index
+.DJT,Dow Jones Transportation Average,US,Sector Index
+.DJU,Dow Jones Utility Average,US,Sector Index
+.NDX,NASDAQ 100 Index,US,Broad Index
+.IXIC,NASDAQ Composite,US,Broad Index
+.RUJ,Russell 2000 Value,US,Broad Index
+.RUI,Russell 1000,US,Broad Index
+.RUT,Russell 2000,US,Broad Index
+.RUA,Russell 3000,US,Broad Index
+.VIX,CBOE Volatility Index,US,Special Index
+.DXY,U.S. Dollar Index,US,Special Index
+.SSEC,Shanghai Composite Index,CH,Broad Index
+.STOXX,STOXX 600 Index,US,Broad Index
+.GDAXI,DAX,Germany,Broad Index
+.FTSE,FTSE 100,UK,Broad Index
+.FCHI,CAC,France,Broad Index
+.FTMIB,FTSE MIB,Italy,Broad Index
+.STOXX,Europe Stoxx 600,Europe,Broad Index
+.N225,Nikkei 225 Index,Japan,Broad Index
+.SSEC,Shanghai,China,Broad Index
+.HSI,Hang Seng Index,Hongkong,Broad Index
+.AXJO,S&P/ASX 200,Australia,Broad Index
+.KS11,KOSPI Index,Korea,Broad Index
+@CL.1,WTI Crude,Oil,Commodity
+@LCO.1,ICE Brent Crude,Oil,Commodity
+@NG.1,Natural Gas,Natural Gas,Commodity
+@SI.1,Silver COMEX,Silver,Commodity
+@GC.1,Gold COMEX,Gold,Commodity
+@HG.1,Copper,Copper,Commodity
+US10Y,U.S. 10 Year Treasury,US Bond,Bond
+DE10Y-DE,Bund 10-YR,German Bond,Bond
+JP10Y-JP,Japan 10 Year Treasury,Japanese Bond,Bond
+EUR=,EUR/USD,Foreign Exchange,FX
+JPY=,USD/JPY,Foreign Exchange,FX
+GBP=,GBP/USD,Foreign Exchange,FX
+USDCAD,USDCAD,Foreign Exchange,FX
+BTC.CB=,Bitcoin/USD Coinbase,Cryptocurrency,Cryptocurrency

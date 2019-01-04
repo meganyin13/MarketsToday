@@ -1,0 +1,92 @@
+/* Global styles
+--------------------- */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    padding: 0;
+    margin: 0;
+}
+
+p {
+    color: white;
+}
+
+/* Title styles
+-------------------- */
+.title {
+    background-color: #33FF99;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+    padding: 1em;
+}
+
+.title h1 {
+    margin-left: 1em;
+}
+
+.title a {
+    text-decoration: none;
+    display: flex;
+    font-size: 2rem;
+}
+
+/* Country tag styles
+------------------------ */
+.country {
+    background-color: #99CCCC;
+}
+
+.country-title {
+    width: 100%;
+    padding: 0.5em 1em;
+    border: 2px solid black;
+    border-left: none;
+    border-right: none;
+}
+
+/* row styles
+------------------------- */
+.row {
+    display: grid;
+    padding: 0 1em;
+    grid-template-columns: 40% 20% 20% 20%;
+}
+
+.row p {
+    /*display: inline-block;*/
+    padding: 0.25em 0;
+}
+
+.row p:not(:first-child) {
+    text-align: right;
+    overflow: hidden;
+}
+
+.stock-down {
+    background-color: #E3352B;
+}
+
+.stock-up {
+    background-color: #31A745;
+}
+
+.stock-unch {
+    background-color: #999999;
+}
