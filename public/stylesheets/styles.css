@@ -59,6 +59,14 @@ p {
     border: 2px solid black;
     border-left: none;
     border-right: none;
+    display: flex;
+    justify-content: space-between;
+}
+
+.timestamp {
+    font-size: 0.75rem;
+    padding: 1em 0 0 0;
+    margin: 0;
 }
 
 /* row styles
@@ -74,9 +82,17 @@ p {
     padding: 0.25em 0;
 }
 
-.row p:not(:first-child) {
+.row p:nth-child(n+3) {
     text-align: right;
     overflow: hidden;
+}
+
+.row .short_name {
+    text-align: left;
+}
+
+.name {
+    display: none;
 }
 
 .stock-down {
@@ -89,4 +105,15 @@ p {
 
 .stock-unch {
     background-color: #999999;
+}
+
+@media (min-width: 600px) {
+    .row .name {
+        display: grid;
+        text-align: left;
+    }
+
+    .short_name {
+        display: none;
+    }
 }

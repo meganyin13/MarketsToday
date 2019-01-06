@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="marketsTodayApp">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Markets Today</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+        <link rel="stylesheet" href="stylesheets/styles.css">
+        <base href="/">
+    </head>
+    <body ng-view>
+        <script src="./lib/angular.min.js"></script>
+        <script src="./lib/angular-route.min.js"></script>
+        <script src="./lib/angular-sanitize.min.js"></script>
+        <script src="homeMarketsSymbols.js"></script>
+        <script src="homeMarkets.js"></script>
+        <script src="env.js"></script>
+        <script src='app.js'></script>
+        <script src="./common/services/marketsToday.service.js"></script>
+        <script src="./common/directive/headingGeneric/headingGeneric.controller.js"></script>
+        <script src="./common/filter/addSign.filter.js"></script>
+        <script src="./home/home.controller.js"></script>
+    </body>
+</html>

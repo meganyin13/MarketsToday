@@ -1,0 +1,18 @@
+<heading-generic></heading-generic>
+
+<div class="container">
+    <div class="country" ng-repeat="market in vm.data.markets">
+        <div class="country-title">
+            <h2>{{ market.name }}</h2>
+            <p class="timestamp">{{ market.time }}</p>
+        </div>
+        <div class="row {{ stock.color }}"  ng-repeat="stock in market.stocks">
+            <p class="name">{{ stock.name }}</p>
+            <p class="short_name">{{  stock.short_name }}</p>
+            <p>{{ stock.price }}</p>
+            <p>{{ stock.change | addSign }}</p>
+            <p>{{ stock.change_pct | addSign }}</p>
+        </div>
+    </div>
+    <!--ng-class="{ row: true, stock-down: class1, stock-up: class2, stock-unch: class3 }"-->
+</div>
