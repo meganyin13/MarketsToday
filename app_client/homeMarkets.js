@@ -173,8 +173,8 @@ var homeMarkets = {
       "ts": ""
     }]
   },
-  "Foreign Exchange": {
-    "name": "Foreign Exchange",
+  "FX": {
+    "name": "FX",
     "stocks": [{
       "symbol":"EUR=",
       "change": null,

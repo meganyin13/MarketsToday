@@ -3,15 +3,7 @@
     // homeCtrl.$inject = ['$scope', 'marketsTodayData'];
     function homeCtrl($scope, marketsTodayData) {
         var vm = this;
-        var homeMarketsSymbols_info = {
-            "North America": [],
-            "Europe": [],
-            "Asia": [],
-            "Commodities": [],
-            "Bonds": [],
-            "Foreign Exchange": [],
-            "Cryptocurrency": []
-        };
+
         vm.data = {markets: homeMarkets};
         var queryString = "";
         for (var market in homeMarketsSymbols) {
