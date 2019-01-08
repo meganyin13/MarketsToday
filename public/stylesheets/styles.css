@@ -26,6 +26,10 @@ p {
     color: white;
 }
 
+a {
+    text-decoration: none;
+}
+
 /* Title styles
 -------------------- */
 .title {
@@ -74,15 +78,16 @@ p {
 .row {
     display: grid;
     padding: 0 1em;
-    grid-template-columns: 40% 20% 20% 20%;
+    grid-template-columns: 5% 35% 20% 20% 20%;
 }
 
-.row p {
+.row p, .row a {
     /*display: inline-block;*/
     padding: 0.25em 0;
+    color: white;
 }
 
-.row p:nth-child(n+3) {
+.row p:not(:first-child) {
     text-align: right;
     overflow: hidden;
 }
@@ -94,6 +99,27 @@ p {
 .name {
     display: none;
 }
+
+.row i {
+    display: none;
+}
+
+.arrow-right {
+    margin-left: -5px;
+    display: inline;
+    color: grey;
+}
+
+.arrow-right i {
+    display: inline;
+}
+
+/*.arrow-right p {*/
+    /*display: inline;*/
+    /*color: darkgrey;*/
+/*}*/
+
+
 
 .stock-down {
     background-color: #E3352B;
@@ -107,13 +133,23 @@ p {
     background-color: #999999;
 }
 
+.dropdown {
+    padding: 0.25em 1em;
+}
+
+.dropdown p {
+    padding: 0.1em 0;
+}
+
 @media (min-width: 600px) {
     .row .name {
-        display: grid;
+        display: inline;
         text-align: left;
     }
 
     .short_name {
         display: none;
     }
+
+
 }

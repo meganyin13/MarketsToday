@@ -8,15 +8,11 @@
                 controller: 'homeCtrl',
                 controllerAs: 'vm'
             })
-            // .when('/about', {
-            //     templateUrl: '/common/views/genericText.view.html',
-            //     controller: 'aboutCtrl',
-            //     controllerAs: 'vm'
-            // })
-            // .when('/location/:locationid', {
-            //     templateUrl: '/locationDetail/locationDetail.view.html', controller: 'locationDetailCtrl',
-            //     controllerAs: 'vm'
-            // })
+            .when('/detail/:stocksymbol', {
+                templateUrl: '/detail/stockDetail.view.html',
+                controller: 'stockDetailCtrl',
+                controllerAs: 'vm'
+            })
             // .when('/register', {
             //     templateUrl: '/auth/register/register.view.html',
             //     controller: 'registerCtrl',

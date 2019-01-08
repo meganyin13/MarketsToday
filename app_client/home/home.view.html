@@ -4,15 +4,25 @@
     <div class="country" ng-repeat="market in vm.data.markets">
         <div class="country-title">
             <h2>{{ market.name }}</h2>
-            <p class="timestamp">{{ market.time }}</p>
+            <p class="timestamp">{{  market.time | formatTimestamp }}</p>
         </div>
-        <div class="row {{ stock.color }}"  ng-repeat="stock in market.stocks">
-            <p class="name">{{ stock.name }}</p>
-            <p class="short_name">{{  stock.short_name }}</p>
-            <p>{{ stock.price }}</p>
-            <p>{{ stock.change | addSign }}</p>
-            <p>{{ stock.change_pct | addSign }}</p>
+        <div ng-repeat="stock in market.stocks">
+            <div class="row {{ stock.color }}">
+                <p ng-class="{ 'arrow-right': stock.related.length!= 0 }" ng-click="showDropdown = !showDropdown"><i class="fas fa-caret-right"></i></p>
+                <a href="/detail/{{ stock.symbol }}" class="name">
+                    {{ stock.name }}
+                </a>
+                <a href="/detail/{{ stock.symbol }}" class="short_name">
+                    {{  stock.short_name }}
+                </a>
+                <p>{{ stock.price }}</p>
+                <p>{{ stock.change | addSign }}</p>
+                <p>{{ stock.change_pct | addSign }}</p>
+            </div>
+
+            <div ng-show="showDropdown" ng-class="{ 'dropdown': stock.related.length!= 0 }">
+                <p ng-repeat="other in stock.related">{{ other.name }}</p>
+            </div>
         </div>
     </div>
-    <!--ng-class="{ row: true, stock-down: class1, stock-up: class2, stock-unch: class3 }"-->
 </div>
