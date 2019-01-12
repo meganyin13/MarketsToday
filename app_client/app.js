@@ -9,7 +9,7 @@
                 controllerAs: 'vm'
             })
             .when('/detail/:stocksymbol', {
-                templateUrl: '/detail/stockDetail.view.html',
+                templateUrl: 'detail/stockDetail.view.html',
                 controller: 'stockDetailCtrl',
                 controllerAs: 'vm'
             })

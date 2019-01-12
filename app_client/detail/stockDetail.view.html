@@ -1,1 +1,30 @@
 <heading-generic></heading-generic>
+
+<div class="country-title">
+    <h2>{{ vm.keyStock.symbol }}</h2>
+    <p class="timestamp">{{  vm.keyStock.ts | formatTimestamp }}</p>
+</div>
+
+<div class="row-detail {{ vm.keyStock.color }}">
+    <p class="name ">{{ vm.keyStock.name }}</p>
+    <p>{{ vm.keyStock.price }}</p>
+    <p>{{ vm.keyStock.change | addSign }}</p>
+    <p>{{ vm.keyStock.change_pct | addSign}}</p>
+</div>
+
+<div id="chart" ng-controller="stockDetailGraphCtrl">
+    <svg width="600" height="200"></svg>
+</div>
+
+<div class="country-title">
+    <h2>Components</h2>
+</div>
+<div class="container">
+    <div class="row-detail {{ comp.color }}" ng-repeat="comp in vm.components">
+        <a href="#" class="name">{{ comp.name }}</a>
+        <!--<a href="#" class="short_name">{{ comp.short_name }}</a>-->
+        <p>{{ comp.price }}</p>
+        <p>{{ comp.change | addSign }}</p>
+        <p>{{ comp.change_pct | addSign }}</p>
+    </div>
+</div>

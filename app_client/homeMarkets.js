@@ -7,35 +7,40 @@ var homeMarkets = {
         "change_pct": null,
         "market_status": "",
         "price": null,
-        "ts": ""
+        "ts": "",
+        "related": ".DJA,.DJT,.DJU"
     }, {
         "symbol":".SPX",
         "change": null,
         "change_pct": null,
         "market_status": "",
         "price": null,
-        "ts": ""
+        "ts": "",
+        "related": ".SPXHC,.SPSY,.SPNY,.SPLRCT,.SPLRCD,.SPLRCL,.SPLRCS,.SPLRCI,.SPLRCM,.SPLRCR,.SPLRCU,.SPXEW,.SPXIN,.SPXRT"
     }, {
       "symbol":".IXIC",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ".NDX"
     }, {
       "symbol":".RUT",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ".RUJ,.RUI,.RUA"
     }, {
       "symbol":".VIX",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }]
   },
   "Europe": {
@@ -46,28 +51,32 @@ var homeMarkets = {
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":".FTSE",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":".FCHI",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":".STOXX",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }]
   },
   "Asia": {
@@ -78,35 +87,40 @@ var homeMarkets = {
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":".SSEC",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":".HSI",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":".AXJO",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":".KS11",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }]
   },
   "Commodities": {
@@ -117,35 +131,40 @@ var homeMarkets = {
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":"@LCO.1",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":"@GC.1",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":"@SI.1",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":"@HG.1",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }]
   },
   "Bonds": {
@@ -156,21 +175,24 @@ var homeMarkets = {
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":"DE10Y-DE",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":"JP10Y-JP",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }]
   },
   "FX": {
@@ -181,28 +203,32 @@ var homeMarkets = {
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":"JPY=",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
       "symbol":"GBP=",
       "change": null,
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }, {
         "symbol":"USDCAD",
         "change": null,
         "change_pct": null,
         "market_status": "",
         "price": null,
-        "ts": ""
+        "ts": "",
+        "related": ""
     }]
   },
   "Cryptocurrency": {
@@ -213,7 +239,8 @@ var homeMarkets = {
       "change_pct": null,
       "market_status": "",
       "price": null,
-      "ts": ""
+      "ts": "",
+      "related": ""
     }]
   }
 };

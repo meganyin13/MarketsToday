@@ -8,7 +8,11 @@
         </div>
         <div ng-repeat="stock in market.stocks">
             <div class="row {{ stock.color }}">
-                <p ng-class="{ 'arrow-right': stock.related.length!= 0 }" ng-click="showDropdown = !showDropdown"><i class="fas fa-caret-right"></i></p>
+                <p ng-class="{ 'arrow': stock.related != '' }" ng-init="showDropdown=false" ng-click="showDropdown = !showDropdown">
+                    <i ng-if="!showDropdown" class="fas fa-caret-right"></i>
+                    <i ng-if="showDropdown" class="fas fa-caret-down"></i>
+                </p>
+                <!--<p ng-class="{ 'arrow-down': showDropdown }"  ng-click="showDropdown = !showDropdown"></p>-->
                 <a href="/detail/{{ stock.symbol }}" class="name">
                     {{ stock.name }}
                 </a>
@@ -20,8 +24,14 @@
                 <p>{{ stock.change_pct | addSign }}</p>
             </div>
 
-            <div ng-show="showDropdown" ng-class="{ 'dropdown': stock.related.length!= 0 }">
-                <p ng-repeat="other in stock.related">{{ other.name }}</p>
+            <div ng-show="showDropdown" ng-class="{ 'dropdown': stock.related.length != 0 }">
+                <div class="row-dropdown {{ other.color }}" ng-repeat="other in stock.related">
+                    <a href="/detail/{{ other.symbol }}" class="name">{{ other.name }}</a>
+                    <a href="/detail/{{ other.symbol }}" class="short_name">{{ other.short_name }}</a>
+                    <p>{{ other.price }}</p>
+                    <p>{{ other.change | addSign }}</p>
+                    <p>{{ other.change_pct | addSign }}</p>
+                </div>
             </div>
         </div>
     </div>

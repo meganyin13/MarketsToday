@@ -28,6 +28,7 @@ p {
 
 a {
     text-decoration: none;
+    color: white;
 }
 
 /* Title styles
@@ -45,6 +46,10 @@ a {
     margin-left: 1em;
 }
 
+.title h1 a {
+    color: black;
+}
+
 .title a {
     text-decoration: none;
     display: flex;
@@ -53,11 +58,9 @@ a {
 
 /* Country tag styles
 ------------------------ */
-.country {
-    background-color: #99CCCC;
-}
 
 .country-title {
+    background-color: #99CCCC;
     width: 100%;
     padding: 0.5em 1em;
     border: 2px solid black;
@@ -87,7 +90,7 @@ a {
     color: white;
 }
 
-.row p:not(:first-child) {
+.row p:nth-child(n+3) {
     text-align: right;
     overflow: hidden;
 }
@@ -100,19 +103,32 @@ a {
     display: none;
 }
 
+/*.row .arrow {*/
+    /*margin-left: -5px;*/
+    /*display: grid;*/
+    /*color: grey;*/
+/*}*/
+
+.arrow i {
+    display: grid; !important
+}
+
 .row i {
     display: none;
 }
 
-.arrow-right {
-    margin-left: -5px;
-    display: inline;
-    color: grey;
-}
+/*.arrow-right i {*/
+    /*display: grid;*/
+/*}*/
 
-.arrow-right i {
-    display: inline;
-}
+/*.arrow-down {*/
+    /*display: grid;*/
+/*}*/
+
+/*.arrow-down i {*/
+    /*margin-left: -5px;*/
+    /*display: grid;*/
+/*}*/
 
 /*.arrow-right p {*/
     /*display: inline;*/
@@ -133,14 +149,6 @@ a {
     background-color: #999999;
 }
 
-.dropdown {
-    padding: 0.25em 1em;
-}
-
-.dropdown p {
-    padding: 0.1em 0;
-}
-
 @media (min-width: 600px) {
     .row .name {
         display: inline;
@@ -150,6 +158,64 @@ a {
     .short_name {
         display: none;
     }
+}
 
+/* Dropdown styles*/
+.dropdown {
+    padding: 0.25em 0;
+}
 
+.dropdown p, .dropdown a {
+    padding: 0.35em 0.2em;
+}
+
+.row-dropdown {
+    display: grid;
+    grid-template-columns: 40% 20% 20% 20%;
+}
+
+.row-dropdown p {
+    text-align: right;
+    overflow: hidden;
+}
+
+.row-dropdown a {
+    color: white;
+}
+
+.dropdown .stock-up {
+    background-color: #44ba58;
+}
+
+.dropdown .stock-down {
+    background-color: #f34914e3;
+}
+
+@media (min-width: 600px) {
+    .row-dropdown .name {
+        display: inline;
+        text-align: left;
+    }
+
+    .short_name {
+        display: none;
+    }
+}
+
+/* Detail styles */
+.row-detail {
+    display: grid;
+    padding: 0 1em;
+    grid-template-columns: 40% 20% 20% 20%;
+}
+
+.row-detail p, .row-detail a {
+    display: inline-block;
+    padding: 0.25em 0;
+    color: white;
+    overflow: hidden;
+}
+
+.row-detail p:not(:first-child) {
+    text-align: right;
 }
