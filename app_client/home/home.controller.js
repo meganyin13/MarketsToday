@@ -60,6 +60,11 @@
                         for (let s in homeMarkets[m].stocks) {
                             let rel_data = [];
                             let rel = homeMarkets[m].stocks[s].related;
+                            if (!(typeof rel === 'string')) {
+                                let a = "";
+                                rel.forEach(d => { a += ","+d.symbol; });
+                                rel = a.substring(1, a.length);
+                            }
                             for (let d in response.data) {
                                 let curr = response.data[d];
                                 let symb = curr.symbol;

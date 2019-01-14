@@ -1,19 +1,40 @@
 <heading-generic></heading-generic>
 
 <div class="country-title">
-    <h2>{{ vm.keyStock.symbol }}</h2>
+    <h2>{{ vm.keyStock.name }}</h2>
     <p class="timestamp">{{  vm.keyStock.ts | formatTimestamp }}</p>
 </div>
 
 <div class="row-detail {{ vm.keyStock.color }}">
-    <p class="name ">{{ vm.keyStock.name }}</p>
+    <p class="name ">{{ vm.keyStock.symbol }}</p>
     <p>{{ vm.keyStock.price }}</p>
     <p>{{ vm.keyStock.change | addSign }}</p>
     <p>{{ vm.keyStock.change_pct | addSign}}</p>
 </div>
 
-<div id="chart" ng-controller="stockDetailGraphCtrl">
-    <svg width="600" height="200"></svg>
+<div ng-controller="stockDetailGraphCtrl">
+    <div class="timeNav">
+        <div id="1d" ng-click="changeTimeInterval('1d')" class="span-selector active">1d</div>
+        <div id="1m" ng-click="changeTimeInterval('1m')" class="span-selector">1m</div>
+        <div id="2m" ng-click="changeTimeInterval('2m')" class="span-selector">2m</div>
+        <div id="3m" ng-click="changeTimeInterval('3m')" class="span-selector">3m</div>
+        <div id="6m" ng-click="changeTimeInterval('6m')" class="span-selector">6m</div>
+        <div id="ytd" ng-click="changeTimeInterval('ytd')" class="span-selector">ytd</div>
+        <div id="1y" ng-click="changeTimeInterval('1y')" class="span-selector">1y</div>
+        <div id="5y" ng-click="changeTimeInterval('5y')" class="span-selector">5y</div>
+        <div id="all" ng-click="changeTimeInterval('all')" class="span-selector">all</div>
+    </div>
+    <div id='chart'>
+        <svg width="600" height="200"></svg>
+    </div>
+    <div class='btn-group btn-group-sm text-center split-by-controls' >
+        <button type='button' class='btn btn-default active'
+                id='Price' ng-click="changeContent('Price')">Price</button>
+        <button type='button' class='btn btn-default'
+                id='Change' ng-click="changeContent('Change')">Change</button>
+        <button type='button' class='btn btn-default'
+                id='ChangePercent' ng-click="changeContent('Change Percent')">Change Percent</button>
+    </div>
 </div>
 
 <div class="country-title">

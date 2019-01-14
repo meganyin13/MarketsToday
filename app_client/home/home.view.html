@@ -8,7 +8,7 @@
         </div>
         <div ng-repeat="stock in market.stocks">
             <div class="row {{ stock.color }}">
-                <p ng-class="{ 'arrow': stock.related != '' }" ng-init="showDropdown=false" ng-click="showDropdown = !showDropdown">
+                <p ng-class="{ 'arrow': stock.related.length === 0 }" ng-init="showDropdown=false" ng-click="showDropdown = !showDropdown">
                     <i ng-if="!showDropdown" class="fas fa-caret-right"></i>
                     <i ng-if="showDropdown" class="fas fa-caret-down"></i>
                 </p>
