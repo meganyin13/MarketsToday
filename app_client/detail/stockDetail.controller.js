@@ -1,5 +1,11 @@
 (function() {
     function stockDetailCtrl($scope, $routeParams, $location, marketsTodayData) {
+        if (window.env.timer) {
+            window.env.timer.forEach(t => clearInterval(t));
+        }
+
+        window.env.timer = [];
+
         var vm = this;
 
         vm.stocksymbol = $routeParams.stocksymbol;
@@ -33,16 +39,16 @@
                         };
                         vm.components.push(allSymbols[c.symbol]);
                         query = comp.map(c => c.symbol).join(",");
-                        getComponents();
                     });
+                    getComponents();
                 }
                 getKeyStock();
             });
 
         getFundamentals();
-        setInterval(getKeyStock, 30*1000);
-        setInterval(getComponents, 30*1000);
-        setInterval(getFundamentals, 30*1000);
+        window.env.timer.push(setInterval(getKeyStock, 30*1000));
+        window.env.timer.push(setInterval(getComponents, 30*1000));
+        window.env.timer.push(setInterval(getFundamentals, 30*1000));
 
         function getKeyStock() {
             marketsTodayData.queryRealTime(vm.stocksymbol)

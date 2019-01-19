@@ -3,7 +3,7 @@
     <div class="search" ng-controller="searchCtrl as ctrl">
         <!--<label id="searchStock">Favorite State</label>-->
         <md-autocomplete md-selected-item="ctrl.selectedItem" md-search-text="ctrl.searchText" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Search by symbol or name..." input-aria-labelledby="searchStock" input-aria-describedby="autocompleteDetailedDescription">
-            <md-item-template }}">
+            <md-item-template>
                 <a style="color: black; text-decoration: underline" href="/detail/{{item.symbol}}" md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</a>
             </md-item-template>
             <md-not-found>

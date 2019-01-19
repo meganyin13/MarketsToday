@@ -1,2 +1,2 @@
-docker build -t meganyin13/apps:marketstoday-0.7.6 .
-docker push meganyin13/apps:marketstoday-0.7.6
+docker build -t meganyin13/apps:marketstoday-0.7.7 .
+docker push meganyin13/apps:marketstoday-0.7.7

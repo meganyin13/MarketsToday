@@ -2,6 +2,12 @@
 
     // homeCtrl.$inject = ['$scope', 'marketsTodayData'];
     function homeCtrl($scope, $uibModal, marketsTodayData) {
+        if (window.env.timer) {
+            window.env.timer.forEach(t => clearInterval(t));
+        }
+
+        window.env.timer = [];
+
         var vm = this;
 
         let homePortfolio = [];
@@ -27,7 +33,7 @@
                 }
             });
             renderPortfolio();
-            setInterval(renderPortfolio, 30*1000);
+            window.env.timer.push(setInterval(renderPortfolio, 30*1000));
         }
 
 
@@ -115,7 +121,7 @@
                 })
         }
 
-        setInterval(getData, 30*1000);
+        window.env.timer.push(setInterval(getData, 30*1000));
 
         function getColor(row) {
             if (row.change > 0) {
