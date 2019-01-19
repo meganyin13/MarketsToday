@@ -1,7 +1,7 @@
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
-var MG = require('metrics-graphics');
+var http = require('http');
 
 var app = express();
 
@@ -18,4 +18,4 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-module.exports = app;
+http.createServer(app).listen(3115);

@@ -4,7 +4,7 @@
 
         vm.stocksymbol = $routeParams.stocksymbol;
 
-        if (window.localStorage.getItem("Portfolio").includes(vm.stocksymbol)) {
+        if (window.localStorage.getItem("Portfolio") && window.localStorage.getItem("Portfolio").includes(vm.stocksymbol)) {
             $('#' + "star").addClass("added");
         }
 

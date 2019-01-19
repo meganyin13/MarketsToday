@@ -11,6 +11,7 @@
     <div class="portfolio" ng-repeat="p in vm.data.portfolio">
         <div class="row {{ p.color }}">
             <!--<p><i style="display: none" class="fas fa-caret-right"></i></p>-->
+            <p>&nbsp;</p>
             <a href="/detail/{{ p.symbol }}" class="name">
                 {{ p.name }}
             </a>
@@ -29,7 +30,7 @@
         </div>
         <div ng-repeat="stock in market.stocks">
             <div class="row {{ stock.color }}">
-                <p ng-class="{ 'arrow': stock.related.length === 0 }" ng-init="showDropdown=false" ng-click="showDropdown = !showDropdown">
+                <p ng-class="{ 'arrow': stock.related_symbols.length === 0 }" ng-init="showDropdown=false" ng-click="showDropdown = !showDropdown">
                     <i ng-if="!showDropdown" class="fas fa-caret-right"></i>
                     <i ng-if="showDropdown" class="fas fa-caret-down"></i>
                 </p>
@@ -47,6 +48,7 @@
 
             <div ng-show="showDropdown" ng-class="{ 'dropdown': stock.related.length != 0 }">
                 <div class="row-dropdown {{ other.color }}" ng-repeat="other in stock.related">
+                    <p>&nbsp;</p>
                     <a href="/detail/{{ other.symbol }}" class="name">{{ other.name }}</a>
                     <a href="/detail/{{ other.symbol }}" class="short_name">{{ other.short_name }}</a>
                     <p>{{ other.price | homeLimitDecimal }}</p>

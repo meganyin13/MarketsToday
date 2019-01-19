@@ -8,7 +8,7 @@ var homeMarkets = {
         "market_status": "",
         "price": null,
         "ts": "",
-        "related": ".DJA,.DJT,.DJU"
+        "related_symbols": ".DJA,.DJT,.DJU"
     }, {
         "symbol":".SPX",
         "change": null,
@@ -16,7 +16,7 @@ var homeMarkets = {
         "market_status": "",
         "price": null,
         "ts": "",
-        "related": ".SPXHC,.SPSY,.SPNY,.SPLRCT,.SPLRCD,.SPLRCL,.SPLRCS,.SPLRCI,.SPLRCM,.SPLRCR,.SPLRCU,.SPXEW,.SPXIN,.SPXRT"
+        "related_symbols": ".SPXHC,.SPSY,.SPNY,.SPLRCT,.SPLRCD,.SPLRCL,.SPLRCS,.SPLRCI,.SPLRCM,.SPLRCR,.SPLRCU,.SPXEW,.SPXIN,.SPXRT"
     }, {
       "symbol":".IXIC",
       "change": null,
@@ -24,7 +24,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ".NDX"
+      "related_symbols": ".NDX"
     }, {
       "symbol":".RUT",
       "change": null,
@@ -32,7 +32,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ".RUJ,.RUI,.RUA"
+      "related_symbols": ".RUJ,.RUI,.RUA"
     }, {
       "symbol":".VIX",
       "change": null,
@@ -40,7 +40,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }]
   },
   "Europe": {
@@ -52,7 +52,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":".FTSE",
       "change": null,
@@ -60,7 +60,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":".FCHI",
       "change": null,
@@ -68,7 +68,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":".STOXX",
       "change": null,
@@ -76,7 +76,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }]
   },
   "Asia": {
@@ -88,7 +88,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":".SSEC",
       "change": null,
@@ -96,7 +96,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":".HSI",
       "change": null,
@@ -104,7 +104,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":".AXJO",
       "change": null,
@@ -112,7 +112,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":".KS11",
       "change": null,
@@ -120,7 +120,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }]
   },
   "Commodities": {
@@ -132,7 +132,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":"@LCO.1",
       "change": null,
@@ -140,7 +140,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":"@GC.1",
       "change": null,
@@ -148,7 +148,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":"@SI.1",
       "change": null,
@@ -156,7 +156,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":"@HG.1",
       "change": null,
@@ -164,7 +164,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }]
   },
   "Bonds": {
@@ -176,7 +176,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":"DE10Y-DE",
       "change": null,
@@ -184,7 +184,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":"JP10Y-JP",
       "change": null,
@@ -192,7 +192,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }]
   },
   "FX": {
@@ -204,7 +204,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":"JPY=",
       "change": null,
@@ -212,7 +212,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
       "symbol":"GBP=",
       "change": null,
@@ -220,7 +220,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }, {
         "symbol":"USDCAD",
         "change": null,
@@ -228,7 +228,7 @@ var homeMarkets = {
         "market_status": "",
         "price": null,
         "ts": "",
-        "related": ""
+        "related_symbols": ""
     }]
   },
   "Cryptocurrency": {
@@ -240,7 +240,7 @@ var homeMarkets = {
       "market_status": "",
       "price": null,
       "ts": "",
-      "related": ""
+      "related_symbols": ""
     }]
   }
 };
