@@ -5,6 +5,9 @@ angular
 
 function formatTimestamp() {
     return function (ts) {
+        if (!ts) {
+            return "";
+        }
         let d = new Date(ts);
         console.log(d);
         return "" + prefixZero(d.getMonth()+1) + "-" + prefixZero(d.getDate()) + " " + prefixZero(d.getHours())
