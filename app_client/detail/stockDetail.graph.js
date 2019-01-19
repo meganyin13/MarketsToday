@@ -8,7 +8,6 @@
         let keySymbol = $routeParams.stocksymbol;
 
         var split_by_params = {
-            title: keySymbol,
             data: null,
             width: screen.width - 20,
             height: 300,

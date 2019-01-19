@@ -20,7 +20,7 @@
     <p>{{ vm.keyStock.change_pct | addSign | homeLimitDecimal}}</p>
 </div>
 
-<div ng-controller="stockDetailGraphCtrl">
+<div class="graph" ng-controller="stockDetailGraphCtrl">
     <div class="timeNav">
         <div id="1d" ng-click="changeTimeInterval('1d')" class="span-selector active">1d</div>
         <div id="1m" ng-click="changeTimeInterval('1m')" class="span-selector">1m</div>

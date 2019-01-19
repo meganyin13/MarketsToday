@@ -56,7 +56,7 @@
             var lowercaseQuery = query.toLowerCase();
 
             return function filterFn(symb) {
-                return (symb.value.indexOf(lowercaseQuery) === 0);
+                return (symb.value.indexOf(lowercaseQuery) >= 0);
             };
 
         }

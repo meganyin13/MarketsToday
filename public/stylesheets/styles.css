@@ -549,3 +549,7 @@ a {
     from {top: -300px; opacity: 0}
     to {top: 0; opacity: 1}
 }
+
+.graph {
+    margin: 1em;
+}

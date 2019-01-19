@@ -20,7 +20,7 @@
             </a>
             <p>{{ p.price | homeLimitDecimal }}</p>
             <p>{{ p.change | homeLimitDecimal | addSign }}</p>
-            <p>{{ p.change_pct | homeLimitDecimal | addSign }}</p>
+            <p>{{ p.change_pct | homeLimitDecimal | addSign | addPercent }}</p>
         </div>
     </div>
     <div class="country" ng-repeat="market in vm.data.markets">
@@ -43,7 +43,7 @@
                 </a>
                 <p>{{ stock.price | homeLimitDecimal}}</p>
                 <p>{{ stock.change | homeLimitDecimal | addSign }}</p>
-                <p>{{ stock.change_pct | homeLimitDecimal | addSign }}</p>
+                <p>{{ stock.change_pct | homeLimitDecimal | addSign | addPercent }}</p>
             </div>
 
             <div ng-show="showDropdown" ng-class="{ 'dropdown': stock.related.length != 0 }">
@@ -53,7 +53,7 @@
                     <a href="/detail/{{ other.symbol }}" class="short_name">{{ other.short_name }}</a>
                     <p>{{ other.price | homeLimitDecimal }}</p>
                     <p>{{ other.change | homeLimitDecimal | addSign }}</p>
-                    <p>{{ other.change_pct | homeLimitDecimal | addSign }}</p>
+                    <p>{{ other.change_pct | homeLimitDecimal | addSign | addPercent }}</p>
                 </div>
             </div>
         </div>

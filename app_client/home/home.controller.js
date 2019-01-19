@@ -30,38 +30,19 @@
             setInterval(renderPortfolio, 30*1000);
         }
 
-        var queryString = "";
-        for (var market in homeMarketsSymbols) {
-            queryString += homeMarketsSymbols[market].join(',') + ','
-        }
-        queryString = queryString.substring(0, queryString.length-1);
-
-        var relatedQuery = "";
-        if (typeof homeMarkets["North America"].stocks[0].related_symbols === 'string') {
-            for (var m in homeMarkets) {
-                for (var s in homeMarkets[m].stocks) {
-                    if (homeMarkets[m].stocks[s].related_symbols) {
-                        relatedQuery += homeMarkets[m].stocks[s].related_symbols + ",";
-                    }
-                }
-            }
-
-        } else {
-            for (var m in homeMarkets) {
-                for (var s in homeMarkets[m].stocks) {
-                    if (homeMarkets[m].stocks[s].related_symbols) {
-                        homeMarkets[m].stocks[s].related_symbols.forEach(r => relatedQuery += r.symbol + ",");
-                    }
-                }
-            }
-        }
-        relatedQuery = relatedQuery.substring(0, relatedQuery.length-1);
-
 
 
         window.env.allSymbols = new Map();
         allSymbols = window.env.allSymbols;
         let homeStocks = {};
+
+        for (var m in homeMarkets) {
+            for (var s in homeMarkets[m].stocks) {
+                if (homeMarkets[m].stocks[s].related) {
+                    homeMarkets[m].stocks[s].related = [];
+                }
+            }
+        }
 
         marketsTodayData.querySymbols()
             .then((response) => {
@@ -104,7 +85,7 @@
 
         function getData() {
             console.log("refresh");
-            marketsTodayData.queryRealTime(queryString + "," + relatedQuery)
+            marketsTodayData.queryRealTime(Object.keys(homeStocks).join(","))
                 .then(function (response) {
                     for (let d in response.data) {
                         let curr = response.data[d];
@@ -120,56 +101,6 @@
                             market.time = curr.ts;
                         }
                     }
-                    // for (let m in homeMarkets) {
-                    //     for (let s in homeMarkets[m].stocks) {
-                    //         let rel_data = [];
-                    //         let rel = homeMarkets[m].stocks[s].related;
-                    //         if (!(typeof rel === 'string')) {
-                    //             let a = "";
-                    //             rel.forEach(d => { a += ","+d.symbol; });
-                    //             rel = a.substring(1, a.length);
-                    //         }
-                    //         for (let d in response.data) {
-                    //             let curr = response.data[d];
-                    //             let symb = curr.symbol;
-                    //             if (homeMarkets[m].stocks[s].symbol === symb) {
-                    //                 if (curr.change > 0) {
-                    //                     curr.color = "stock-up";
-                    //                 } else if (curr.change < 0) {
-                    //                     curr.color = "stock-down";
-                    //                 } else {
-                    //                     curr.color = "stock-unch";
-                    //                 }
-                    //                 let n = homeMarkets[m].stocks[s].name;
-                    //                 let s_n = homeMarkets[m].stocks[s].short_name;
-                    //                 let comp = homeMarkets[m].stocks[s].components;
-                    //                 let r = homeMarkets[m].stocks[s].related;
-                    //                 homeMarkets[m].stocks[s] = curr;
-                    //                 homeMarkets[m].stocks[s].name = n;
-                    //                 homeMarkets[m].stocks[s].short_name = s_n;
-                    //                 homeMarkets[m].stocks[s].components = comp;
-                    //                 homeMarkets[m].stocks[s].related = r;
-                    //                 if (!homeMarkets[m].time || new Date(curr.ts) > new Date(homeMarkets[m].time)) {
-                    //                     homeMarkets[m].time = curr.ts;
-                    //                 }
-                    //             } else if (rel.includes(curr.symbol)) {
-                    //                 if (curr.change > 0) {
-                    //                     curr.color = "stock-up";
-                    //                 } else if (curr.change < 0) {
-                    //                     curr.color = "stock-down";
-                    //                 } else {
-                    //                     curr.color = "stock-unch";
-                    //                 }
-                    //                 curr.name = allSymbols.get(curr.symbol).name;
-                    //                 curr.short_name = allSymbols.get(curr.symbol).short_name;
-                    //                 rel_data.push(curr);
-                    //
-                    //                 // if (rel_data.length === rel.split(",").length) break;
-                    //             }
-                    //         }
-                    //         homeMarkets[m].stocks[s].related = rel_data;
-                    //     }
-                    // }
                     vm.data.markets = homeMarkets
                 }, function (response) {
                     homeMarkets[market].stocks = [{
