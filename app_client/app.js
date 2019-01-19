@@ -1,5 +1,5 @@
 (function () {
-    angular.module('marketsTodayApp', ['ngRoute', 'ngSanitize']);
+    angular.module('marketsTodayApp', ['ngRoute', 'ngSanitize', 'ngMaterial', 'ui.bootstrap']);
 
     function config($routeProvider, $locationProvider) {
         $routeProvider

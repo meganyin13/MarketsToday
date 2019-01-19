@@ -1,6 +1,27 @@
 <heading-generic></heading-generic>
 
 <div class="container">
+    <div class="country-title portfolio" ng-if="vm.data.portfolio.length !== 0">
+        <div class="myPortfolio">
+            <h2 ng-click="vm.popupReviewForm()"><i class="far fa-edit"></i></h2>
+            <h2>My Portfolio</h2>
+        </div>
+        <p class="timestamp">{{  vm.data.portfolioTime | formatTimestamp }}</p>
+    </div>
+    <div class="portfolio" ng-repeat="p in vm.data.portfolio">
+        <div class="row {{ p.color }}">
+            <!--<p><i style="display: none" class="fas fa-caret-right"></i></p>-->
+            <a href="/detail/{{ p.symbol }}" class="name">
+                {{ p.name }}
+            </a>
+            <a href="/detail/{{ p.symbol }}" class="short_name">
+                {{  p.short_name }}
+            </a>
+            <p>{{ p.price | homeLimitDecimal }}</p>
+            <p>{{ p.change | homeLimitDecimal | addSign }}</p>
+            <p>{{ p.change_pct | homeLimitDecimal | addSign }}</p>
+        </div>
+    </div>
     <div class="country" ng-repeat="market in vm.data.markets">
         <div class="country-title">
             <h2>{{ market.name }}</h2>
@@ -19,18 +40,18 @@
                 <a href="/detail/{{ stock.symbol }}" class="short_name">
                     {{  stock.short_name }}
                 </a>
-                <p>{{ stock.price }}</p>
-                <p>{{ stock.change | addSign }}</p>
-                <p>{{ stock.change_pct | addSign }}</p>
+                <p>{{ stock.price | homeLimitDecimal}}</p>
+                <p>{{ stock.change | homeLimitDecimal | addSign }}</p>
+                <p>{{ stock.change_pct | homeLimitDecimal | addSign }}</p>
             </div>
 
             <div ng-show="showDropdown" ng-class="{ 'dropdown': stock.related.length != 0 }">
                 <div class="row-dropdown {{ other.color }}" ng-repeat="other in stock.related">
                     <a href="/detail/{{ other.symbol }}" class="name">{{ other.name }}</a>
                     <a href="/detail/{{ other.symbol }}" class="short_name">{{ other.short_name }}</a>
-                    <p>{{ other.price }}</p>
-                    <p>{{ other.change | addSign }}</p>
-                    <p>{{ other.change_pct | addSign }}</p>
+                    <p>{{ other.price | homeLimitDecimal }}</p>
+                    <p>{{ other.change | homeLimitDecimal | addSign }}</p>
+                    <p>{{ other.change_pct | homeLimitDecimal | addSign }}</p>
                 </div>
             </div>
         </div>

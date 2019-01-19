@@ -1,4 +1,15 @@
 <div class="title">
     <div><h1><a href="/">Markets Today</a></h1></div>
-    <div><a href="#"><i class="fas fa-search"></i></a></div>
+    <div class="search" ng-controller="searchCtrl as ctrl">
+        <!--<label id="searchStock">Favorite State</label>-->
+        <md-autocomplete md-selected-item="ctrl.selectedItem" md-search-text="ctrl.searchText" md-items="item in ctrl.querySearch(ctrl.searchText)" md-item-text="item.display" md-min-length="0" placeholder="Stock symbol or name" input-aria-labelledby="searchStock" input-aria-describedby="autocompleteDetailedDescription">
+            <md-item-template ng-href="/detail/{{item.value.toUpperCase()}}">
+                <a style="color: black; text-decoration: underline" href="/detail/{{item.value.toUpperCase()}}" md-highlight-text="ctrl.searchText" md-highlight-flags="^i">{{item.display}}</a>
+            </md-item-template>
+            <md-not-found>
+                No stocks matching "{{ctrl.searchText}}" were found.
+            </md-not-found>
+        </md-autocomplete>
+        <br>
+    </div>
 </div>

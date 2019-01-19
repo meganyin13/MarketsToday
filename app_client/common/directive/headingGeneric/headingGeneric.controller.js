@@ -6,5 +6,6 @@
         return {
             restrict: 'EA',
             templateUrl: '/common/directive/headingGeneric/headingGeneric.template.html'
-        }; }
+        };
+    }
 })();

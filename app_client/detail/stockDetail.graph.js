@@ -6,10 +6,9 @@
     stockDetailGraphCtrl.$inject = ['$scope', '$routeParams', 'marketsTodayData'];
     function stockDetailGraphCtrl($scope, $routeParams, marketsTodayData) {
         let keySymbol = $routeParams.stocksymbol;
-        var globals = {};
 
         var split_by_params = {
-            title: keySymbol + " Line Chart",
+            title: keySymbol,
             data: null,
             width: screen.width - 20,
             height: 300,
@@ -21,15 +20,11 @@
             transition_on_update: false
         };
 
-
-
         $scope.getInitialData = function() {
-            let date = new Date('2019-01-13T13:00:00');
+            let date = new Date();
             let start_time = "093000";
             let end_time = addZeros(date.getHours()) + ":" + addZeros(date.getMinutes()) + ":" + addZeros(date.getSeconds());
             let closing_time = "16:00:00";
-            date.setDate(date.getDate() - 1); // should i really go back to prev. day?
-
             if (date.getDay() === 0) {
                 date.setDate(d.getDate() - 2)
             } else if (date.getDay() === 6) {
@@ -43,7 +38,6 @@
 
             let start_dateString = date.getFullYear() + addZeros(date.getMonth()+1) + addZeros(date.getDate()) + start_time;
             let end_dateString = date.getFullYear() + addZeros(date.getMonth()+1) + addZeros(date.getDate()) + end_time;
-                //addZeros(date.getHours()) + addZeros(date.getMinutes()) + addZeros(date.getSeconds());
 
             // 20190112093000
             d3.json(`http://api.ai4stocks.com/api/rt?symbols=${keySymbol}&start_time=${start_dateString}&end_time=${end_dateString}&interval=1M`, function (err, data) {
@@ -68,8 +62,6 @@
                 split_by_params.min_y = split_by_params.min_Price;
                 split_by_params.max_y = split_by_params.max_Price;
 
-                // split_by_params.yax_format = d3.format('2p');
-
                 MG.data_graphic(split_by_params);
             });
         };
@@ -85,6 +77,12 @@
 
             // change button state
             $('#' + s.split(" ").join("")).addClass('active').siblings().removeClass('active');
+
+            if (s === "Change" || s === "Change Percent") {
+                split_by_params.yax_format = d3.format(".2d");
+            } else {
+                split_by_params.yax_format = d3.format("5d");
+            }
 
             // update data
             delete split_by_params.xax_format;
@@ -117,19 +115,28 @@
                 data_type = "ts";
             } else if (interval === "ytd") {
                 date.setMonth(0);
-                date.setDate(1);
-                date.setHours(0);
-                date.setMinutes(0);
+                date.setDate(2);
+
+                if (date.getDay() === 0) {
+                    date.setDate(d.getDate() - 2)
+                } else if (date.getDay() === 6) {
+                    date.setDate(date.getDate() - 1);
+                }
+
+                date.setHours(9);
+                date.setMinutes(30);
+                data_interval = "1D";
                 data_type = "ts";
             } else if (year_re.test(interval)) {
                 date.setFullYear(date.getFullYear() - parseInt(interval.charAt(0)));
                 data_interval = "1D";
                 data_type = "ts";
-            } else if (interval === "all") {
-                date = null;
-                data_interval = "1M";
-                data_type = "ts";
             }
+            // } else if (interval === "all") {
+            //     date = null;
+            //     data_interval = "1M";
+            //     data_type = "ts";
+            // }
 
             let dateString = "";
             if (date !== null) {

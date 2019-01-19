@@ -1,15 +1,23 @@
 <heading-generic></heading-generic>
 
-<div class="country-title">
-    <h2>{{ vm.keyStock.name }}</h2>
+<div class="country-title detail">
+    <div ng-controller="stockDetailPortfolioCtrl">
+        <div class="popup" ng-click="saveToPortfolio()">
+            <a class="star" id="star"><i class="fas fa-star"></i></a>
+            <span class="popuptext" id="portfolioPopupSave">Saved to portfolio</span>
+            <span class="popuptext" id="portfolioPopupRemove">Removed from portfolio</span>
+        </div>
+        <h2 class="name">{{ vm.keyStock.name }}</h2>
+        <!--<h2 class="short_name">{{ vm.keyStock.short_name }}</h2>-->
+    </div>
     <p class="timestamp">{{  vm.keyStock.ts | formatTimestamp }}</p>
 </div>
 
 <div class="row-detail {{ vm.keyStock.color }}">
-    <p class="name ">{{ vm.keyStock.symbol }}</p>
-    <p>{{ vm.keyStock.price }}</p>
-    <p>{{ vm.keyStock.change | addSign }}</p>
-    <p>{{ vm.keyStock.change_pct | addSign}}</p>
+    <p class="name">{{ vm.keyStock.symbol }}</p>
+    <p>{{ vm.keyStock.price | homeLimitDecimal }}</p>
+    <p>{{ vm.keyStock.change | addSign | homeLimitDecimal }}</p>
+    <p>{{ vm.keyStock.change_pct | addSign | homeLimitDecimal}}</p>
 </div>
 
 <div ng-controller="stockDetailGraphCtrl">
@@ -22,7 +30,7 @@
         <div id="ytd" ng-click="changeTimeInterval('ytd')" class="span-selector">ytd</div>
         <div id="1y" ng-click="changeTimeInterval('1y')" class="span-selector">1y</div>
         <div id="5y" ng-click="changeTimeInterval('5y')" class="span-selector">5y</div>
-        <div id="all" ng-click="changeTimeInterval('all')" class="span-selector">all</div>
+        <!--<div id="all" ng-click="changeTimeInterval('all')" class="span-selector">all</div>-->
     </div>
     <div id='chart'>
         <svg width="600" height="200"></svg>
@@ -37,12 +45,41 @@
     </div>
 </div>
 
-<div class="country-title">
-    <h2>Components</h2>
+<div>
+    <div ng-if="vm.fundamentals !== {}" class="country-title">
+        <h2>Fundamentals</h2>
+    </div>
+    <div class="fund-content">
+        <div class="row" ng-repeat="f in vm.fundamentals">
+            <!--<div ng-if="$index % 3 === 0" class="row-3">-->
+                <p class="label">{{ f.label }}</p>
+                <p class="value">{{ f.val | limitDecimal }}</p>
+            <!--</div>-->
+        </div>
+    </div>
 </div>
+
+<div>
+    <div ng-if="vm.news.length !== 0" class="country-title">
+        <h2>Latest News</h2>
+    </div>
+    <div class="news-content">
+        <div class="row" ng-repeat="news in vm.news">
+            <a class="link" href="{{ news.link }}">{{ news.title }}</a>
+            <div class="news-meta">
+                <p class="source">{{ news.source }}</p>
+                <p class="pub_date">{{ news.pub_date | hoursAgo }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="container">
-    <div class="row-detail {{ comp.color }}" ng-repeat="comp in vm.components">
-        <a href="#" class="name">{{ comp.name }}</a>
+    <div ng-if="vm.components.length !== 0" class="country-title">
+        <h2>Components</h2>
+    </div>
+    <div class="row-detail {{ comp.color }}" ng-if="comp.price" ng-repeat="comp in vm.components">
+        <a href="/detail/{{ comp.symbol }}" class="name">{{ comp.name }}</a>
         <!--<a href="#" class="short_name">{{ comp.short_name }}</a>-->
         <p>{{ comp.price }}</p>
         <p>{{ comp.change | addSign }}</p>
