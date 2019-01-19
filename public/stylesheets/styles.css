@@ -302,7 +302,7 @@ a {
     grid-template-columns: 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5% 12.5%;
     justify-content: center;
     border-bottom: 3px solid #dddddd;
-    margin:1em;
+    margin: 0 1em;
 }
 
 .timeNav > .span-selector {

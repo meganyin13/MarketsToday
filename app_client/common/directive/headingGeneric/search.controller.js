@@ -30,12 +30,12 @@
         }
 
         function loadAll(symbols) {
-            let symbolsAdded = "";
             marketsTodayData.querySymbols()
                 .then((response) => {
                     response.data.forEach(d => {
                         symbols.push({
                             value: d.symbol.toLowerCase(),
+                            symbol: d.symbol,
                             display: `${d.symbol}: ${d.name}`
                         });
 
