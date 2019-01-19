@@ -9,10 +9,13 @@
 
         var split_by_params = {
             data: null,
-            width: screen.width - 20,
+            width: document.getElementById('chart').clientWidth - 20,
             height: 300,
             right: 20,
             target: document.getElementById('chart'),
+            interpolate: d3.curveLinear,
+            x_extended_ticks: true,
+            y_extended_ticks: true,
             x_accessor: 'date',
             y_accessor: 'Price',
             yax_format: d3.format("5d"),
@@ -23,16 +26,21 @@
             let date = new Date();
             let start_time = "093000";
             let end_time = addZeros(date.getHours()) + ":" + addZeros(date.getMinutes()) + ":" + addZeros(date.getSeconds());
-            let closing_time = "16:00:00";
-            if (date.getDay() === 0) {
-                date.setDate(d.getDate() - 2)
-            } else if (date.getDay() === 6) {
-                date.setDate(date.getDate() - 1);
-            }
+            let closing_time = "16:30:00";
 
             if (Date.parse(`01/01/2019 ${end_time}`) > Date.parse(`01/01/2019 ${closing_time}`)) {
                 end_time = closing_time;
             }
+
+
+            if (date.getDay() === 0) {
+                date.setDate(d.getDate() - 2)
+                end_time = closing_time;
+            } else if (date.getDay() === 6) {
+                date.setDate(date.getDate() - 1);
+                end_time = closing_time;
+            }
+
             end_time = end_time.split(":").join("");
 
             let start_dateString = date.getFullYear() + addZeros(date.getMonth()+1) + addZeros(date.getDate()) + start_time;
@@ -47,8 +55,6 @@
                     return {
                         date: d3.isoParse(d.ts),
                         Price: d.price,
-                        Change: d.change,
-                        "Change Percent": d.change_pct
                     }
                 });
                 split_by_params.data = data;
@@ -78,7 +84,7 @@
             $('#' + s.split(" ").join("")).addClass('active').siblings().removeClass('active');
 
             if (s === "Change" || s === "Change Percent") {
-                split_by_params.yax_format = d3.format(".2d");
+                split_by_params.yax_format = d3.format(".2f");
             } else {
                 split_by_params.yax_format = d3.format("5d");
             }
@@ -184,5 +190,10 @@
         };
 
         $scope.getInitialData();
+
+        window.addEventListener('resize', function() {
+            split_by_params.width =  document.getElementById('chart').clientWidth - 20;
+            MG.data_graphic(split_by_params);
+        })
     }
 })();

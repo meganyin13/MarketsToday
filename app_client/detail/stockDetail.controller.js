@@ -14,6 +14,7 @@
         var keySymbol = null;
         console.log(vm.stocksymbol);
         vm.components = [];
+        let query;
 
         marketsTodayData.querySymbols()
             .then((response) => {
@@ -31,13 +32,17 @@
                             ts: null
                         };
                         vm.components.push(allSymbols[c.symbol]);
-                        getComponents(comp.map(c => c.symbol).join(","));
+                        query = comp.map(c => c.symbol).join(",");
+                        getComponents();
                     });
                 }
                 getKeyStock();
             });
 
         getFundamentals();
+        setInterval(getKeyStock, 30*1000);
+        setInterval(getComponents, 30*1000);
+        setInterval(getFundamentals, 30*1000);
 
         function getKeyStock() {
             marketsTodayData.queryRealTime(vm.stocksymbol)
@@ -56,7 +61,8 @@
                 });
         }
 
-        function getComponents(query) {
+
+        function getComponents() {
             marketsTodayData.queryRealTime(query)
                 .then((response) => {
                     for (var d in response.data) {
@@ -78,6 +84,7 @@
         }
 
         function getFundamentals() {
+            console.log('fund');
             vm.fundamentals = {};
             marketsTodayData.queryRealTime(vm.stocksymbol)
                 .then((response) => {
