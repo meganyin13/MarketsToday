@@ -42,7 +42,8 @@
                         if (d.components.length !== 0) {
                             d.components.forEach(c => {
                                 symbols.push({
-                                    value: c.symbol.toLowerCase(),
+                                    value: c.symbol.toLowerCase() + ":" + c.name.toLowerCase(),
+                                    symbol: c.symbol,
                                     display: `${c.symbol}: ${c.name}`
                                 })
                             })
