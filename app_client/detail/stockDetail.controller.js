@@ -27,27 +27,30 @@
                 keySymbol = response.data.filter(i => i.symbol === vm.stocksymbol)[0];
                 if (keySymbol) {
                     const comp = response.data.filter(i => i.symbol === vm.stocksymbol)[0].components;
-                    comp.forEach(c => {
-                        allSymbols[c.symbol] = {
-                            symbol: c.symbol,
-                            name: c.name,
-                            change: null,
-                            change_pct: null,
-                            market_status: null,
-                            price: null,
-                            ts: null
-                        };
-                        vm.components.push(allSymbols[c.symbol]);
-                        query = comp.map(c => c.symbol).join(",");
-                    });
-                    getComponents();
+                    if (comp && comp.length > 0) {
+                        comp.forEach(c => {
+                            allSymbols[c.symbol] = {
+                                symbol: c.symbol,
+                                name: c.name,
+                                change: null,
+                                change_pct: null,
+                                market_status: null,
+                                price: null,
+                                ts: null
+                            };
+                            vm.components.push(allSymbols[c.symbol]);
+                            query = comp.map(c => c.symbol).join(",");
+                        });
+                        getComponents();
+                        window.env.timer.push(setInterval(getComponents, 30*1000));
+                    }
                 }
                 getKeyStock();
             });
 
         getFundamentals();
         window.env.timer.push(setInterval(getKeyStock, 30*1000));
-        window.env.timer.push(setInterval(getComponents, 30*1000));
+
         window.env.timer.push(setInterval(getFundamentals, 30*1000));
 
         function getKeyStock() {
